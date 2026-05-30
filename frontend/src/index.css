@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-inter antialiased overflow-x-hidden bg-[#03030c] text-slate-100;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron tracking-wide;
+  }
+}
+
+@layer utilities {
+  /* Cyber HUD Grid Background */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center;
+  }
+
+  /* Glassmorphism Panel */
+  .glass-panel {
+    background: rgba(8, 9, 21, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 240, 255, 0.08);
+  }
+
+  .glass-panel:hover {
+    border-color: rgba(0, 240, 255, 0.25);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+  }
+
+  /* Neon Glowing Borders */
+  .border-glow-cyan {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    border-color: rgba(0, 240, 255, 0.4);
+  }
+
+  .border-glow-purple {
+    box-shadow: 0 0 10px rgba(189, 0, 255, 0.2);
+    border-color: rgba(189, 0, 255, 0.4);
+  }
+
+  /* Laser Cyber line scanning */
+  .laser-scan {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .laser-scan::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 240, 255, 0.15),
+      transparent
+    );
+    animation: laserScan 4s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes laserScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+
+  /* Glow Text */
+  .text-glow-cyan {
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+  }
+  
+  .text-glow-purple {
+    text-shadow: 0 0 8px rgba(189, 0, 255, 0.6);
+  }
+
+  /* Magnetic Floating Utility */
+  .cyber-float {
+    animation: matrixFloat 6s ease-in-out infinite;
+  }
+
+  /* Reticle / Radar Scanning visual */
+  .hud-scanner {
+    border-radius: 50%;
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.02) 0%, transparent 70%);
+  }
+
+  .hud-scanner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    border: 2px dashed rgba(0, 240, 255, 0.3);
+    animation: spin 30s linear infinite;
+  }
+}
