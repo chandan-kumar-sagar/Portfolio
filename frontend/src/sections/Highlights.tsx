@@ -33,16 +33,16 @@ export const Highlights: React.FC = () => {
 
   return (
     <SectionReveal>
-      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full select-none">
         <SectionHeader tag="Benchmarks" title="TECHNICAL BENCHMARKS" accent="pink" subtitle="Measurable outcomes from production engineering work." />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {highlightCards.map((card, idx) => {
           const IconComp = card.icon;
           return (
             <div 
               key={idx}
-              className="p-8 border border-cyan-500/10 glass-panel rounded-lg hover:border-cyan-500/35 hover:shadow-cyan-glow transition-all duration-300 flex flex-col justify-between h-[360px] relative group overflow-hidden"
+              className="p-6 sm:p-8 border border-cyan-500/10 glass-panel rounded-lg hover:border-cyan-500/35 hover:shadow-cyan-glow transition-all duration-300 flex flex-col justify-between relative group overflow-hidden"
             >
               
               {/* Scanline hover effect */}
@@ -67,8 +67,8 @@ export const Highlights: React.FC = () => {
               </div>
 
               {/* Metric data footer */}
-              <div className="mt-8 border-t border-cyan-950/40 pt-4 select-text">
-                <span className="text-3xl font-black font-orbitron tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+              <div className="mt-6 sm:mt-8 border-t border-cyan-950/40 pt-4 select-text">
+                <span className="text-2xl sm:text-3xl font-black font-orbitron tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
                   {card.metric}
                 </span>
                 <span className="font-mono text-[9px] text-slate-500 block uppercase mt-0.5 tracking-wider">

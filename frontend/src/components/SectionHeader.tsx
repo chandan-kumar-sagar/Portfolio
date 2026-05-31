@@ -28,11 +28,11 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         <span className={`w-1.5 h-1.5 rounded-full ${a.dot}`} />
         <span className={`font-mono text-[11px] ${a.tag} tracking-[0.2em] uppercase`}>{tag}</span>
       </div>
-      <h2 className="text-3xl md:text-[2.5rem] font-extrabold text-slate-50 tracking-wide leading-tight">
+      <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-extrabold text-slate-50 tracking-wide leading-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-sm text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-inter">
+        <p className="mt-3 text-sm text-slate-400 max-w-[95%] sm:max-w-xl mx-auto lg:mx-0 leading-relaxed font-inter">
           {subtitle}
         </p>
       )}

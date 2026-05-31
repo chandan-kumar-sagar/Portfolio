@@ -68,14 +68,14 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
 
   return (
     <SectionReveal>
-      <section id="contact" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+      <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full select-none">
         <SectionHeader tag="Contact" title="SECURE TRANSCEIVER UPLINK" accent="cyan" subtitle="Reach out for collaborations, hiring, or project inquiries." />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12">
         
         {/* Left Column: Social Links & Server Telemetry */}
-        <div className="lg:col-span-5 flex flex-col justify-between space-y-8 select-text">
-          <div className="p-6 border border-cyan-500/10 glass-panel rounded-lg shadow-hud-glow">
+        <div className="lg:col-span-5 flex flex-col justify-between space-y-6 sm:space-y-8 select-text">
+          <div className="p-5 sm:p-6 border border-cyan-500/10 glass-panel rounded-lg shadow-hud-glow">
             <h3 className="font-orbitron font-bold text-sm text-cyan-400 tracking-wider uppercase mb-3 flex items-center gap-2">
               <Cpu className="w-4.5 h-4.5 animate-pulse" /> TARGET DIRECTIVES
             </h3>
@@ -111,11 +111,11 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
           </div>
 
           {/* Social node clusters */}
-          <div className="p-6 border border-purple-500/10 glass-panel rounded-lg">
-            <h3 className="font-orbitron font-bold text-xs text-purple-400 tracking-wider uppercase mb-4">
+          <div className="p-5 sm:p-6 border border-purple-500/10 glass-panel rounded-lg">
+            <h3 className="font-orbitron font-bold text-xs text-purple-400 tracking-wider uppercase mb-3 sm:mb-4">
               EXTERNAL COGNITIVE PORTS
             </h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <a
                 href={config.githubUrl}
                 target="_blank"
@@ -142,7 +142,7 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
         <div className="lg:col-span-7 flex flex-col gap-6">
           
           {/* Terminal logger feedback screen */}
-          <div className="w-full font-mono text-[9px] md:text-[10px] text-cyan-500/90 bg-[#040612] border border-cyan-950/70 p-4 rounded-lg h-36 overflow-y-auto flex flex-col gap-1 shadow-inner select-none scrollbar-thin">
+          <div className="w-full font-mono text-[9px] md:text-[10px] text-cyan-500/90 bg-[#040612] border border-cyan-950/70 p-3 sm:p-4 rounded-lg h-28 sm:h-36 overflow-y-auto flex flex-col gap-1 shadow-inner select-none scrollbar-thin">
             <div className="text-slate-500">// JARVIS LOGSTREAM DIAGNOSTICS:</div>
             {terminalLogs.map((log, i) => (
               <div key={i} className="truncate">
@@ -152,7 +152,7 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
           </div>
 
           {/* Core Interactive Command Form */}
-          <form onSubmit={handleSubmit} className="p-6 md:p-8 border border-cyan-500/10 glass-panel rounded-lg shadow-hud-glow space-y-4">
+          <form onSubmit={handleSubmit} className="relative p-5 sm:p-6 md:p-8 border border-cyan-500/10 glass-panel rounded-lg shadow-hud-glow space-y-4">
             
             <div className="absolute inset-0 pointer-events-none rounded-lg bg-gradient-to-b from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 opacity-0 hover:opacity-100 transition-opacity duration-300 laser-scan"></div>
             

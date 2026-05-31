@@ -23,12 +23,13 @@ export const TechStack: React.FC = () => {
 
   return (
     <SectionReveal>
-      <section id="techstack" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none relative">
+      <section id="techstack" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full select-none relative">
         <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-purple-500/[0.02] via-transparent to-cyan-500/[0.02] rounded-3xl" />
 
         <SectionHeader tag="Capabilities" title="TELESCOPIC TECH MATRIX" accent="purple" subtitle="Production-ready backend, frontend, database, and security modules." />
 
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12 max-w-4xl mx-auto">
+        <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-4 mb-10 sm:mb-12 max-w-4xl mx-auto overflow-x-auto pb-2 scrollbar-thin px-1">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           {categories.map((cat) => {
             const IconComp = cat.icon;
             const isActive = activeCategory === cat.id;
@@ -36,20 +37,21 @@ export const TechStack: React.FC = () => {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-4 py-2.5 rounded font-orbitron font-semibold text-[10px] tracking-wider flex items-center gap-2 border transition-all duration-300 cursor-pointer clickable
+                className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded font-orbitron font-semibold text-[9px] sm:text-[10px] tracking-wider flex items-center gap-1.5 sm:gap-2 border transition-all duration-300 cursor-pointer clickable shrink-0
                   ${isActive
                     ? 'bg-purple-600/80 border-purple-400 text-slate-100 shadow-purple-glow scale-105'
-                    : 'bg-cyber-card border-cyan-500/10 text-slate-400 hover:border-cyan-500/30 hover:text-cyan-400 hover:scale-102'
+                    : 'bg-cyber-card border-cyan-500/10 text-slate-400 hover:border-cyan-500/30 hover:text-cyan-400'
                   }`}
               >
-                <IconComp className="w-3.5 h-3.5" />
+                <IconComp className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                 {cat.name}
               </button>
             );
           })}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredSkills.map((skill, idx) => (
             <div
               key={`${skill.name}-${idx}`}

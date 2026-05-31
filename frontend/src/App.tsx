@@ -149,7 +149,7 @@ export const App: React.FC = () => {
           <ParticlesBG />
           <ScrollProgress />
 
-          <nav className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-3.5 flex items-center justify-between transition-all duration-300
+          <nav className={`fixed top-0 left-0 right-0 z-50 px-3 sm:px-5 md:px-8 py-3 sm:py-3.5 flex items-center justify-between transition-all duration-300
             ${navScrolled
               ? 'bg-[#03030c]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,240,255,0.06)]'
               : 'bg-[#03030c]/70 backdrop-blur-md border-b border-cyan-500/10'
@@ -185,16 +185,16 @@ export const App: React.FC = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
-              <div className="hidden sm:flex flex-col text-right font-mono text-[9px] text-cyan-400/70">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="hidden md:flex flex-col text-right font-mono text-[9px] text-cyan-400/70">
                 <span>UPLINK: SECURE</span>
                 <span>VIEWS: {pageViews || '1250'}</span>
               </div>
-              <div className="px-3 py-1 rounded-full border border-cyan-400/20 bg-cyan-950/15 flex items-center gap-1.5 shadow-hud-glow">
+              <div className="px-2.5 sm:px-3 py-1 rounded-full border border-cyan-400/20 bg-cyan-950/15 flex items-center gap-1.5 shadow-hud-glow">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
                 <span className="font-orbitron text-[9px] tracking-widest text-cyan-400 font-bold hidden sm:block">JARVIS ACTIVE</span>
               </div>
-              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 rounded border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/10 transition-colors">
+              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-1.5 sm:p-2 rounded border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/10 transition-colors">
                 {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
             </div>
@@ -220,10 +220,10 @@ export const App: React.FC = () => {
             )}
           </AnimatePresence>
 
-          <main className="relative z-10 pt-[60px] mesh-gradient">
+          <main className="relative z-10 pt-[56px] sm:pt-[60px] mesh-gradient">
 
             {/* ═══ HERO SECTION ═══ */}
-            <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-16 overflow-hidden">
+            <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-14 sm:py-16 overflow-hidden">
 
               {/* === Ambient Glows === */}
               {/* Left side — purple glow for girl */}
@@ -233,8 +233,8 @@ export const App: React.FC = () => {
 
               {/* ── Boy — top-right corner, cyan neon swing ── */}
               <div
-                className="absolute z-10 pointer-events-none flex items-start select-none w-[100px] sm:w-[140px] md:w-[190px] lg:w-[240px] xl:w-[270px]"
-                style={{ top: '70px', right: '10px' }}
+                className="absolute z-10 pointer-events-none flex items-start select-none w-[80px] sm:w-[130px] md:w-[180px] lg:w-[230px] xl:w-[260px]"
+                style={{ top: '65px', right: '6px' }}
               >
                 <img src="/swing-boy.png" alt="" aria-hidden="true" className="char-boy w-full h-auto object-contain" />
               </div>
@@ -244,14 +244,14 @@ export const App: React.FC = () => {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center lg:text-left flex flex-col items-center lg:items-start mb-4 z-20 select-text w-full max-w-5xl relative lg:pl-12 lg:mr-auto"
+                className="text-center lg:text-left flex flex-col items-center lg:items-start mb-4 z-20 select-text w-full max-w-5xl relative lg:pl-8 xl:pl-12 lg:mr-auto"
               >
-                <div className="pro-badge mb-6 flex justify-center lg:justify-start">
-                  <Terminal className="w-3.5 h-3.5 mr-2" />
-                  <span className="tracking-wider uppercase">Backend Engineer · MERN Stack · Open to Work</span>
+                <div className="pro-badge mb-5 sm:mb-6 flex justify-center lg:justify-start">
+                  <Terminal className="w-3.5 h-3.5 mr-1.5 sm:mr-2 shrink-0" />
+                  <span className="tracking-wider uppercase truncate">Backend Engineer · MERN Stack · Open to Work</span>
                 </div>
 
-                <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-4 font-orbitron relative text-center lg:text-left w-full">
+                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-3 sm:mb-4 font-orbitron relative text-center lg:text-left w-full">
                   <span className="absolute inset-0 blur-2xl opacity-30 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-purple-400 select-none" aria-hidden="true">{config.ownerName}</span>
                   <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-slate-100 to-purple-300">{config.ownerName}</span>
                 </h1>
@@ -260,7 +260,7 @@ export const App: React.FC = () => {
               </motion.div>
 
               {/* ══ BOTTOM ROW: [Speech + Girl] left ↔ Globe right ══ */}
-              <div className="w-full max-w-6xl mx-auto z-10 flex flex-col lg:flex-row lg:items-end lg:justify-between relative gap-4 lg:gap-8">
+              <div className="w-full max-w-6xl mx-auto z-10 flex flex-col lg:flex-row lg:items-end lg:justify-between relative gap-4 lg:gap-6 xl:gap-8">
 
                 {/* ── LEFT COLUMN: Speech box pushed down, Girl anchored at bottom ── */}
                 <div className="hidden lg:flex flex-col items-start justify-between flex-1 self-stretch" style={{ minHeight: '380px' }}>
@@ -341,7 +341,7 @@ export const App: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.15 }}
-                  className="w-full max-w-[600px] h-[420px] md:h-[520px] lg:h-[560px] pointer-events-auto globe-canvas flex items-center justify-center flex-1"
+                  className="w-full max-w-full sm:max-w-[560px] lg:max-w-[600px] h-[320px] sm:h-[400px] md:h-[480px] lg:h-[540px] xl:h-[560px] pointer-events-auto globe-canvas flex items-center justify-center flex-1 mx-auto lg:mx-0"
                 >
                   <Suspense fallback={<div className="w-full h-full flex items-center justify-center"><div className="w-10 h-10 border-2 border-cyan-500/20 border-t-cyan-400 rounded-full animate-spin" /></div>}>
                     <TechGlobe3D activeSection={activeSection} onHoverSkill={setHoveredSkill} />
@@ -350,16 +350,16 @@ export const App: React.FC = () => {
               </div>
 
               {/* ── Girl fallback on mobile/tablet — absolute bottom-left ── */}
-              <div className="lg:hidden absolute bottom-0 left-2 z-0 pointer-events-none select-none flex items-end w-[100px] sm:w-[130px] md:w-[160px]">
+              <div className="lg:hidden absolute bottom-0 left-0 z-0 pointer-events-none select-none flex items-end w-[90px] sm:w-[120px] md:w-[150px]">
                 <img src="/swing-girl.png" alt="" aria-hidden="true" className="char-girl w-full h-auto object-contain" />
               </div>
 
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-mono text-[9px] text-slate-500 tracking-widest z-10"
+                className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-mono text-[9px] text-slate-500 tracking-widest z-10"
               >
-                <div className="w-px h-8 bg-gradient-to-b from-cyan-500/40 to-transparent" />
+                <div className="w-px h-6 sm:h-8 bg-gradient-to-b from-cyan-500/40 to-transparent" />
                 SCROLL
               </motion.div>
             </section>
@@ -383,18 +383,18 @@ export const App: React.FC = () => {
             </Suspense>
           </main>
 
-          <footer className="relative border-t border-cyan-500/10 bg-[#02020a]/80 py-10 px-6 backdrop-blur-md z-10 text-center font-mono">
+          <footer className="relative border-t border-cyan-500/10 bg-[#02020a]/80 py-8 sm:py-10 px-4 sm:px-6 backdrop-blur-md z-10 text-center font-mono">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <Terminal className="w-4 h-4 text-cyan-400 animate-pulse" />
-                <span className="text-[10px] tracking-wider text-slate-400">
+            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Terminal className="w-4 h-4 text-cyan-400 animate-pulse shrink-0" />
+                <span className="text-[9px] sm:text-[10px] tracking-wider text-slate-400 text-center sm:text-left">
                   © {new Date().getFullYear()} {config.ownerName.toUpperCase()} — ALL PORTFOLIO CORES NOMINAL.
                 </span>
               </div>
-              <div className="flex items-center gap-6 text-[10px] text-slate-500">
+              <div className="flex items-center gap-4 sm:gap-6 text-[9px] sm:text-[10px] text-slate-500">
                 <span className="flex items-center gap-1.5">
-                  <Shield className="w-3.5 h-3.5 text-purple-400" />
+                  <Shield className="w-3.5 h-3.5 text-purple-400 shrink-0" />
                   SECURE SHIELD: ACTIVE
                 </span>
                 <span>LATENCY: 12ms</span>

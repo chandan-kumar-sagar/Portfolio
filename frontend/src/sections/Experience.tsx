@@ -39,11 +39,11 @@ export const Experience: React.FC = () => {
 
   return (
     <SectionReveal delay={0.05}>
-      <section id="experience" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+      <section id="experience" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full select-none">
         <SectionHeader tag="Experience" title="PROFESSIONAL JOURNEY" accent="cyan" subtitle="1.7+ years building production backend systems and optimized data layers." />
 
       {/* Timeline core data track */}
-      <div className="relative border-l border-cyan-500/10 pl-8 md:pl-12 space-y-12 max-w-4xl mx-auto">
+      <div className="relative border-l border-cyan-500/10 pl-6 sm:pl-8 md:pl-12 space-y-8 sm:space-y-12 max-w-4xl mx-auto">
         
         {/* Optical glowing timeline path */}
         <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-cyan-400 via-purple-500 to-transparent shadow-cyan-glow"></div>
@@ -53,14 +53,14 @@ export const Experience: React.FC = () => {
             <div key={idx} className="relative group select-text">
               
               {/* Pulsing circular neon node */}
-              <span className={`absolute -left-[40px] md:-left-[56px] top-1.5 w-4 h-4 rounded-full border border-slate-900 bg-cyber-bg flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-125
+              <span className={`absolute -left-[33px] sm:-left-[40px] md:-left-[52px] top-1.5 w-3.5 sm:w-4 h-3.5 sm:h-4 rounded-full border border-slate-900 bg-cyber-bg flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-125
                 ${idx === 0 ? 'text-cyan-400 border-cyan-400 shadow-cyan-glow' : 'text-purple-400 border-purple-400 shadow-purple-glow'}`}
               >
                 <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${idx === 0 ? 'bg-cyan-400' : 'bg-purple-400'}`}></div>
               </span>
 
               {/* Glass timeline card */}
-              <div className={`p-6 md:p-8 border rounded-lg bg-cyber-card backdrop-blur-md transition-all duration-300 hover:-translate-y-1 flex flex-col gap-4 group-hover:border-cyan-400/30 ${exp.color}`}>
+              <div className={`p-5 sm:p-6 md:p-8 border rounded-lg bg-cyber-card backdrop-blur-md transition-all duration-300 hover:-translate-y-1 flex flex-col gap-3 sm:gap-4 group-hover:border-cyan-400/30 ${exp.color}`}>
                 
                 {/* Scanline overlay */}
                 <div className="absolute inset-0 pointer-events-none rounded-lg bg-gradient-to-b from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 laser-scan"></div>
@@ -78,7 +78,7 @@ export const Experience: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 font-mono text-[10px] text-cyan-400/90 bg-[#040612] px-3 py-1 rounded border border-cyan-950/80 w-max shadow-inner">
+                  <div className="flex items-center gap-1.5 font-mono text-[9px] sm:text-[10px] text-cyan-400/90 bg-[#040612] px-2 sm:px-3 py-1 rounded border border-cyan-950/80 w-max shadow-inner shrink-0">
                     <Calendar className="w-3 h-3 text-cyan-400" />
                     <span>{exp.duration.toUpperCase()}</span>
                   </div>

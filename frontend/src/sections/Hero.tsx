@@ -45,13 +45,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, a
     <div className="flex flex-col items-center lg:items-start text-center lg:text-left select-text w-full">
 
       {/* Animated Role Typewriter */}
-      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-orbitron tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 min-h-[40px] mb-5">
+      <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold font-orbitron tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 min-h-[36px] sm:min-h-[40px] mb-4 sm:mb-5">
         {displayText}
         <span className="border-r-2 border-cyan-400 animate-typing-blink ml-1"></span>
       </h2>
 
       {/* Description */}
-      <p className="text-sm sm:text-base text-slate-400 font-inter leading-relaxed max-w-2xl mb-8">
+      <p className="text-sm sm:text-base text-slate-400 font-inter leading-relaxed max-w-[95%] sm:max-w-2xl mb-6 sm:mb-8">
         Leveraging <span className="text-cyan-400 font-bold">1.7+ years</span> of core backend systems experience.
         Specializing in high-performance <span className="text-purple-400 font-semibold">Node.js/Express.js</span> REST APIs,
         robust database query optimizations achieving <span className="text-cyan-400 font-semibold">25–30% faster latency</span>,
@@ -59,16 +59,16 @@ export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, a
       </p>
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10 w-full">
+      <div className="flex flex-col xs:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 w-full">
         <button
           onClick={() => onNavClick('projects')}
-          className="btn-primary flex items-center gap-2 cursor-pointer clickable"
+          className="btn-primary flex items-center gap-2 cursor-pointer clickable w-full xs:w-auto"
         >
           EXPLORE PROJECTS <ArrowRight className="w-4 h-4" />
         </button>
         <button
           onClick={() => onNavClick('contact')}
-          className="btn-secondary flex items-center gap-2 cursor-pointer clickable"
+          className="btn-secondary flex items-center gap-2 cursor-pointer clickable w-full xs:w-auto"
         >
           CONTACT TERMINAL
         </button>
@@ -82,18 +82,18 @@ export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, a
       </div>
 
       {/* Quick metrics — production stat cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-8 w-full max-w-2xl select-none lg:mx-0">
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-6 sm:pt-8 w-full max-w-2xl select-none lg:mx-0">
         <div className="pro-stat text-center lg:text-left">
           <span className="pro-stat-label">DB Optimization</span>
-          <span className="pro-stat-value block mt-1">25–30% Faster</span>
+          <span className="pro-stat-value block mt-1 text-xs sm:text-sm">25–30% Faster</span>
         </div>
         <div className="pro-stat text-center lg:text-left">
           <span className="pro-stat-label">Security</span>
-          <span className="pro-stat-value block mt-1 text-purple-300">JWT / RBAC</span>
+          <span className="pro-stat-value block mt-1 text-purple-300 text-xs sm:text-sm">JWT / RBAC</span>
         </div>
         <div className="pro-stat text-center lg:text-left">
           <span className="pro-stat-label">Experience</span>
-          <span className="pro-stat-value block mt-1 text-pink-300">1.7+ Years</span>
+          <span className="pro-stat-value block mt-1 text-pink-300 text-xs sm:text-sm">1.7+ Years</span>
         </div>
       </div>
     </div>

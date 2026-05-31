@@ -24,7 +24,7 @@ export const Projects: React.FC = () => {
       color: "border-cyan-500/20 shadow-cyan-glow",
       // Custom procedural HTML Architecture Diagram representing the system flow!
       architecture: (
-        <div className="w-full h-36 bg-[#040612] rounded border border-cyan-950/70 p-2.5 font-mono text-[8px] text-cyan-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
+        <div className="w-full h-28 sm:h-36 bg-[#040612] rounded border border-cyan-950/70 p-2.5 font-mono text-[8px] text-cyan-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
           <div className="text-slate-500 uppercase">// ARCHITECTURE: SECURE_RESERVATION_FLOW</div>
           <div className="flex items-center justify-between border-b border-cyan-950 pb-1 mb-1">
             <span>[CLIENT]</span>
@@ -56,7 +56,7 @@ export const Projects: React.FC = () => {
       icon: Database,
       color: "border-purple-500/20 shadow-purple-glow",
       architecture: (
-        <div className="w-full h-36 bg-[#040612] rounded border border-purple-950/70 p-2.5 font-mono text-[8px] text-purple-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
+        <div className="w-full h-28 sm:h-36 bg-[#040612] rounded border border-purple-950/70 p-2.5 font-mono text-[8px] text-purple-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
           <div className="text-slate-500 uppercase">// ARCHITECTURE: ATTENDANCE_PUNCH_SYSTEM</div>
           <div className="flex items-center justify-between border-b border-purple-950 pb-1 mb-1">
             <span>[CLI ENGINE]</span>
@@ -88,7 +88,7 @@ export const Projects: React.FC = () => {
       icon: Zap,
       color: "border-pink-500/20 shadow-purple-glow",
       architecture: (
-        <div className="w-full h-36 bg-[#040612] rounded border border-pink-950/70 p-2.5 font-mono text-[8px] text-pink-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
+        <div className="w-full h-28 sm:h-36 bg-[#040612] rounded border border-pink-950/70 p-2.5 font-mono text-[8px] text-pink-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
           <div className="text-slate-500 uppercase">// ARCHITECTURE: GEMINI_RESUME_PARSER</div>
           <div className="flex items-center justify-between border-b border-pink-950 pb-1 mb-1">
             <span>[EXTENSION]</span>
@@ -120,7 +120,7 @@ export const Projects: React.FC = () => {
       icon: Server,
       color: "border-cyan-500/20 shadow-cyan-glow",
       architecture: (
-        <div className="w-full h-36 bg-[#040612] rounded border border-cyan-950/70 p-2.5 font-mono text-[8px] text-cyan-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
+        <div className="w-full h-28 sm:h-36 bg-[#040612] rounded border border-cyan-950/70 p-2.5 font-mono text-[8px] text-cyan-400 flex flex-col gap-1 overflow-hidden shadow-inner select-none">
           <div className="text-slate-500 uppercase">// ARCHITECTURE: ENDPOINT_FIREWALL_SHIELD</div>
           <div className="flex items-center justify-between border-b border-cyan-950 pb-1 mb-1">
             <span>[REQUEST]</span>
@@ -147,17 +147,17 @@ export const Projects: React.FC = () => {
 
   return (
     <SectionReveal delay={0.05}>
-      <section id="projects" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+      <section id="projects" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full select-none">
         <SectionHeader tag="Projects" title="PROJECT ARCHITECTURES" accent="purple" subtitle="Real-world systems with secure auth, optimized queries, and clean API design." />
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
         {projectList.map((project, idx) => {
           const IconComp = project.icon;
           return (
             <div 
               key={idx}
-              className={`p-6 border rounded-lg bg-cyber-card backdrop-blur-md transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between h-[480px] relative group hover:border-cyan-400/30 ${project.color}`}
+              className={`p-5 sm:p-6 border rounded-lg bg-cyber-card backdrop-blur-md transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between relative group hover:border-cyan-400/30 ${project.color}`}
             >
               
               {/* Scanline hover overlay */}

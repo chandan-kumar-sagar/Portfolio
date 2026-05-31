@@ -70,7 +70,7 @@ const educationData: EducationEntry[] = [
 export const Education: React.FC = () => {
   return (
     <SectionReveal delay={0.05}>
-      <section id="education" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+      <section id="education" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full select-none">
         <SectionHeader 
           tag="Academic Records" 
           title="EDUCATION DIRECTORY" 
@@ -82,7 +82,7 @@ export const Education: React.FC = () => {
       <div className="relative max-w-4xl mx-auto">
 
         {/* Vertical connecting line */}
-        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500/30 via-purple-500/20 to-transparent pointer-events-none md:-translate-x-px"></div>
+        <div className="absolute left-5 sm:left-6 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500/30 via-purple-500/20 to-transparent pointer-events-none lg:-translate-x-px"></div>
 
         <div className="flex flex-col gap-12">
           {educationData.map((edu, idx) => {
@@ -96,10 +96,10 @@ export const Education: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative flex flex-col md:flex-row gap-6 md:gap-0 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                className={`relative flex flex-col lg:flex-row gap-6 lg:gap-0 ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
               >
-                {/* Content Card — takes up half width on md+ */}
-                <div className={`flex-1 md:px-10 ${isEven ? 'md:pr-14 md:pl-0 md:text-right' : 'md:pl-14 md:pr-0 md:text-left'} pl-14 md:pl-10`}>
+                {/* Content Card — takes up half width on lg+ */}
+                <div className={`flex-1 lg:px-10 ${isEven ? 'lg:pr-14 lg:pl-0 lg:text-right' : 'lg:pl-14 lg:pr-0 lg:text-left'} pl-14 lg:pl-10`}>
                   <div
                     className={`p-6 rounded-xl border glass-panel ${edu.borderColor} ${edu.glowClass} hover:scale-[1.01] transition-transform duration-300 group`}
                   >
@@ -119,9 +119,9 @@ export const Education: React.FC = () => {
                     <p className="text-slate-500 text-[10px] font-mono mb-4">📍 {edu.location}</p>
 
                     {/* Highlights */}
-                    <ul className={`space-y-1.5 ${isEven ? 'md:text-right' : 'md:text-left'} text-left`}>
+                    <ul className={`space-y-1.5 ${isEven ? 'lg:text-right' : 'lg:text-left'} text-left`}>
                       {edu.highlights.map((h, hIdx) => (
-                        <li key={hIdx} className="text-slate-400 text-xs font-inter flex items-start gap-2 md:flex-row">
+                        <li key={hIdx} className="text-slate-400 text-xs font-inter flex items-start gap-2">
                           <span className={`${edu.color} mt-0.5 shrink-0`}>▸</span>
                           <span>{h}</span>
                         </li>
@@ -131,14 +131,14 @@ export const Education: React.FC = () => {
                 </div>
 
                 {/* Center Icon Marker */}
-                <div className="absolute left-0 md:left-1/2 top-6 md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full border-2 bg-[#03030c] z-10 shrink-0"
+                <div className="absolute left-0 lg:left-1/2 top-6 lg:-translate-x-1/2 flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 rounded-full border-2 bg-[#03030c] z-10 shrink-0"
                   style={{ borderColor: edu.color.includes('cyan') ? 'rgba(6,182,212,0.4)' : edu.color.includes('purple') ? 'rgba(168,85,247,0.4)' : 'rgba(236,72,153,0.4)' }}
                 >
-                  <Icon className={`w-5 h-5 ${edu.color}`} />
+                  <Icon className={`w-4 sm:w-5 h-4 sm:h-5 ${edu.color}`} />
                 </div>
 
                 {/* Spacer side (empty) */}
-                <div className="hidden md:block flex-1"></div>
+                <div className="hidden lg:block flex-1"></div>
               </motion.div>
             );
           })}

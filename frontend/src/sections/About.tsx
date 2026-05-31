@@ -6,14 +6,14 @@ import { SectionReveal } from '../components/SectionReveal';
 export const About: React.FC = () => {
   return (
     <SectionReveal>
-      <section id="about" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+      <section id="about" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full select-none">
         <SectionHeader tag="About" title="PROFESSIONAL STORY LOG" accent="cyan" align="left" subtitle="Backend engineer focused on scalable APIs, database performance, and secure system design." />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch select-text">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-stretch select-text">
         
         {/* Left Grid: Detailed Chronological Biography story */}
         <div className="lg:col-span-8 flex h-full">
-          <div className="p-8 border border-cyan-500/10 glass-panel hud-panel rounded-lg shadow-hud-glow flex flex-col justify-between relative group card-lift w-full h-full">
+          <div className="p-6 sm:p-8 border border-cyan-500/10 glass-panel hud-panel rounded-lg shadow-hud-glow flex flex-col justify-between relative group card-lift w-full h-full">
             {/* Holographic scanner effect */}
             <div className="absolute inset-0 pointer-events-none rounded-lg bg-gradient-to-b from-cyan-500/0 via-cyan-500/5 to-cyan-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 laser-scan"></div>
             
@@ -55,10 +55,10 @@ export const About: React.FC = () => {
         </div>
 
         {/* Right Grid: Career Stats and Qualifications summary */}
-        <div className="lg:col-span-4 flex flex-col gap-6 lg:gap-8 h-full">
+        <div className="lg:col-span-4 flex flex-col gap-4 sm:gap-6 lg:gap-8">
           
           {/* Quick Metrics Widget */}
-          <div className="p-6 border border-purple-500/10 glass-panel rounded-lg flex flex-col justify-between flex-grow relative group">
+          <div className="p-5 sm:p-6 border border-purple-500/10 glass-panel rounded-lg flex flex-col justify-between flex-grow relative group">
             <h3 className="font-orbitron font-extrabold text-xs text-purple-400 tracking-widest uppercase mb-4 flex items-center gap-1.5">
               <Award className="w-4 h-4 text-purple-400" /> SYSTEM CAPABILITIES
             </h3>
@@ -85,7 +85,7 @@ export const About: React.FC = () => {
           </div>
 
           {/* Education Widget card */}
-          <div className="p-6 border border-cyan-500/10 glass-panel rounded-lg flex flex-col justify-between relative group">
+          <div className="p-5 sm:p-6 border border-cyan-500/10 glass-panel rounded-lg flex flex-col justify-between relative group">
             <h3 className="font-orbitron font-extrabold text-xs text-cyan-400 tracking-widest uppercase mb-4 flex items-center gap-1.5">
               <Info className="w-4 h-4 text-cyan-400" /> ACADEMIC DIRECTORY
             </h3>

@@ -236,7 +236,7 @@
   }
 
   .pro-stat {
-    @apply px-4 py-3 rounded-xl border border-cyan-500/10 bg-[#050614]/50 backdrop-blur-sm;
+    @apply px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-cyan-500/10 bg-[#050614]/50 backdrop-blur-sm;
   }
 
   .pro-stat-value {
@@ -257,20 +257,43 @@
 
   /* Primary CTA — matches neon cyan */
   .btn-primary {
-    @apply px-8 py-3.5 rounded-lg font-orbitron font-semibold text-xs tracking-widest text-[#03030c] bg-cyan-400 transition-all duration-300 shadow-cyan-glow;
+    @apply px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-orbitron font-semibold text-[10px] sm:text-xs tracking-widest text-[#03030c] bg-cyan-400 transition-all duration-300 shadow-cyan-glow;
   }
   .btn-primary:hover {
     @apply bg-cyan-300 shadow-cyan-glow-heavy -translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply px-8 py-3.5 rounded-lg font-orbitron font-semibold text-xs tracking-widest text-purple-300 border border-purple-500/40 bg-purple-950/20 backdrop-blur-sm transition-all duration-300;
+    @apply px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-orbitron font-semibold text-[10px] sm:text-xs tracking-widest text-purple-300 border border-purple-500/40 bg-purple-950/20 backdrop-blur-sm transition-all duration-300;
   }
   .btn-secondary:hover {
     @apply border-purple-400 bg-purple-950/35 shadow-purple-glow -translate-y-0.5;
   }
 
   .pro-badge {
-    @apply inline-flex items-center gap-2 text-cyan-400 font-mono text-[11px] px-4 py-2 rounded-full border border-cyan-500/20 bg-cyan-950/10 backdrop-blur-sm;
+    @apply inline-flex items-center gap-1.5 sm:gap-2 text-cyan-400 font-mono text-[10px] sm:text-[11px] px-3 sm:px-4 py-2 rounded-full border border-cyan-500/20 bg-cyan-950/10 backdrop-blur-sm max-w-full overflow-hidden;
+  }
+
+  /* Scrollbar hide/thin utilities */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 240, 255, 0.15) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.15);
+    border-radius: 2px;
+  }
+
+  /* Overflow-x hide for scrollable rows */
+  .overflow-x-scrollable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
