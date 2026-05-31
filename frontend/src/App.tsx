@@ -8,7 +8,7 @@ import type { SkillNode } from './components/TechGlobe3D';
 import { Hero } from './sections/Hero';
 import { config } from './config/env';
 import { api } from './services/api';
-import { Terminal, Shield, Cpu, MessageSquare, Menu, X } from 'lucide-react';
+import { Terminal, Shield, Cpu, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const TechGlobe3D = lazy(() =>
