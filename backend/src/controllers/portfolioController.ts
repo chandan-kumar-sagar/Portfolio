@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { Contact } from '../models/Contact';
 import { Analytics } from '../models/Analytics';
+import { sendContactNotification } from '../services/emailService';
 
 // 1. Submit Contact Form Message
 export const submitContact = async (req: Request, res: Response) => {
@@ -23,11 +24,16 @@ export const submitContact = async (req: Request, res: Response) => {
 
     await newContact.save();
 
-    console.log(`[MAILER-SYSTEM] Received new message from ${name} (${email})`);
+    const emailSent = await sendContactNotification({ name, email, subject, message });
+
+    console.log(`[MAILER-SYSTEM] Received new message from ${name} (${email}) — email ${emailSent ? 'sent' : 'skipped (SMTP not configured)'}`);
 
     return res.status(201).json({
       success: true,
-      message: 'TRANSMISSION RECEIVED: Secure uplink established. Chandan will contact you soon.'
+      message: emailSent
+        ? 'TRANSMISSION RECEIVED: Notification sent. Chandan will contact you soon.'
+        : 'TRANSMISSION RECEIVED: Secure uplink established. Chandan will contact you soon.',
+      emailSent,
     });
   } catch (error: any) {
     console.error(`[ERROR] Contact submission failed:`, error);

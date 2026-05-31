@@ -1,5 +1,9 @@
 import React from 'react';
 import { ExternalLink, Database, Zap, Cpu, Server } from 'lucide-react';
+import { SectionHeader } from '../components/SectionHeader';
+import { SectionReveal } from '../components/SectionReveal';
+import { TechIcon } from '../components/TechIcon';
+import { getTechByName } from '../data/techStack';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -142,19 +146,12 @@ export const Projects: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
-      
-      {/* Section Title */}
-      <div className="mb-16 text-center">
-        <span className="font-mono text-xs text-purple-400 tracking-widest uppercase block mb-2">// DIRECTIVE: SYSTEM_BLUEPRINTS</span>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-100 tracking-wider">
-          PROJECT ARCHITECTURES
-        </h2>
-        <div className="w-24 h-[2px] bg-gradient-to-r from-purple-400 to-transparent mt-3 mx-auto"></div>
-      </div>
+    <SectionReveal delay={0.05}>
+      <section id="projects" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+        <SectionHeader tag="Projects" title="PROJECT ARCHITECTURES" accent="purple" subtitle="Real-world systems with secure auth, optimized queries, and clean API design." />
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {projectList.map((project, idx) => {
           const IconComp = project.icon;
           return (
@@ -191,14 +188,20 @@ export const Projects: React.FC = () => {
               <div>
                 {/* Tech module badges */}
                 <div className="flex flex-wrap items-center gap-1.5 mb-5">
-                  {project.tech.map((t, tIdx) => (
-                    <span 
-                      key={tIdx}
-                      className="font-mono text-[9px] tracking-wider text-cyan-300 bg-cyan-950/15 border border-cyan-500/10 px-2 py-0.5 rounded cursor-default"
-                    >
-                      {t.toUpperCase()}
-                    </span>
-                  ))}
+                  {project.tech.map((t, tIdx) => {
+                    const tech = getTechByName(t);
+                    return (
+                      <span
+                        key={tIdx}
+                        className="font-mono text-[9px] tracking-wider text-cyan-300 bg-cyan-950/15 border border-cyan-500/10 px-2 py-0.5 rounded cursor-default flex items-center gap-1.5"
+                      >
+                        {tech && (
+                          <TechIcon slug={tech.slug} color={tech.color} name={tech.name} size="sm" />
+                        )}
+                        {t.toUpperCase()}
+                      </span>
+                    );
+                  })}
                 </div>
 
                 {/* Secure links */}
@@ -226,7 +229,8 @@ export const Projects: React.FC = () => {
         })}
       </div>
 
-    </section>
+      </section>
+    </SectionReveal>
   );
 };
 export default Projects;

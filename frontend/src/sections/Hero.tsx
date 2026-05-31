@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Download } from 'lucide-react';
+import { config } from '../config/env';
 
 interface HeroProps {
   onNavClick: (sectionId: string) => void;
@@ -41,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, a
   }, [displayText, isDeleting, roleIndex, typingSpeed]);
 
   return (
-    <div className="flex flex-col items-center text-center select-text w-full">
+    <div className="flex flex-col items-center lg:items-start text-center lg:text-left select-text w-full">
 
       {/* Animated Role Typewriter */}
       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-orbitron tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 min-h-[40px] mb-5">
@@ -58,50 +59,41 @@ export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, a
       </p>
 
       {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+      <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10 w-full">
         <button
           onClick={() => onNavClick('projects')}
-          className="px-8 py-3.5 rounded font-orbitron font-semibold text-xs tracking-widest text-[#03030c] bg-cyan-400 hover:bg-cyan-300 transition-all duration-300 shadow-cyan-glow hover:shadow-cyan-glow-heavy flex items-center gap-2 cursor-pointer clickable"
+          className="btn-primary flex items-center gap-2 cursor-pointer clickable"
         >
           EXPLORE PROJECTS <ArrowRight className="w-4 h-4" />
         </button>
         <button
           onClick={() => onNavClick('contact')}
-          className="px-8 py-3.5 rounded font-orbitron font-semibold text-xs tracking-widest text-purple-300 border border-purple-500/40 bg-purple-950/15 hover:border-purple-400 hover:bg-purple-950/30 transition-all duration-300 hover:shadow-purple-glow flex items-center gap-2 cursor-pointer clickable"
+          className="btn-secondary flex items-center gap-2 cursor-pointer clickable"
         >
           CONTACT TERMINAL
         </button>
         <a
-          href="#contact"
-          onClick={(e) => { e.preventDefault(); onNavClick('contact'); }}
+          href={config.resumeUrl}
+          onClick={(e) => { if (config.resumeUrl === '#') { e.preventDefault(); onNavClick('contact'); } }}
           className="flex items-center gap-1.5 text-slate-400 hover:text-cyan-400 font-mono text-[10px] tracking-widest transition-colors duration-200 underline decoration-cyan-500/20 underline-offset-4 cursor-pointer clickable"
         >
           <Download className="w-3.5 h-3.5" />[ GET RESUME.PDF ]
         </a>
       </div>
 
-      {/* Quick HUD Metrics Row */}
-      <div className="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-cyan-950/40 w-full max-w-lg select-none">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
-          <div className="font-mono text-[9px] text-left">
-            <span className="text-slate-500 block uppercase">DB OPTIMIZATION</span>
-            <span className="text-cyan-300 font-bold">25-30% FAST RESPONSE</span>
-          </div>
+      {/* Quick metrics — production stat cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-8 w-full max-w-2xl select-none lg:mx-0">
+        <div className="pro-stat text-center lg:text-left">
+          <span className="pro-stat-label">DB Optimization</span>
+          <span className="pro-stat-value block mt-1">25–30% Faster</span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping"></span>
-          <div className="font-mono text-[9px] text-left">
-            <span className="text-slate-500 block uppercase">SECURITY GATEWAY</span>
-            <span className="text-purple-300 font-bold">JWT / RBAC ACCESS</span>
-          </div>
+        <div className="pro-stat text-center lg:text-left">
+          <span className="pro-stat-label">Security</span>
+          <span className="pro-stat-value block mt-1 text-purple-300">JWT / RBAC</span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping"></span>
-          <div className="font-mono text-[9px] text-left">
-            <span className="text-slate-500 block uppercase">EXPERIENCE</span>
-            <span className="text-pink-300 font-bold">1.7+ YEARS BACKEND</span>
-          </div>
+        <div className="pro-stat text-center lg:text-left">
+          <span className="pro-stat-label">Experience</span>
+          <span className="pro-stat-value block mt-1 text-pink-300">1.7+ Years</span>
         </div>
       </div>
     </div>

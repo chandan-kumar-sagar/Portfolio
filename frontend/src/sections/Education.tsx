@@ -1,6 +1,8 @@
 import React from 'react';
 import { GraduationCap, BookOpen, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SectionHeader } from '../components/SectionHeader';
+import { SectionReveal } from '../components/SectionReveal';
 
 interface EducationEntry {
   institution: string;
@@ -67,19 +69,14 @@ const educationData: EducationEntry[] = [
 
 export const Education: React.FC = () => {
   return (
-    <section id="education" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
-
-      {/* Section Header */}
-      <div className="mb-16 text-center">
-        <span className="font-mono text-xs text-purple-400 tracking-widest uppercase block mb-2">// ACADEMIC RECORDS</span>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-100 tracking-wider font-orbitron">
-          EDUCATION DIRECTORY
-        </h2>
-        <div className="w-24 h-[2px] bg-gradient-to-r from-purple-400 to-transparent mt-3 mx-auto"></div>
-        <p className="text-slate-400 text-sm mt-4 font-inter max-w-xl mx-auto">
-          Academic training that laid the systems-thinking foundation for high-performance backend engineering.
-        </p>
-      </div>
+    <SectionReveal delay={0.05}>
+      <section id="education" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+        <SectionHeader 
+          tag="Academic Records" 
+          title="EDUCATION DIRECTORY" 
+          accent="purple" 
+          subtitle="Academic training that laid the systems-thinking foundation for high-performance backend engineering." 
+        />
 
       {/* Timeline */}
       <div className="relative max-w-4xl mx-auto">
@@ -89,7 +86,7 @@ export const Education: React.FC = () => {
 
         <div className="flex flex-col gap-12">
           {educationData.map((edu, idx) => {
-            const Icon = edu.icon;
+            const Icon = edu.icon as React.ComponentType<{ className?: string }>;
             const isEven = idx % 2 === 0;
 
             return (
@@ -147,7 +144,8 @@ export const Education: React.FC = () => {
           })}
         </div>
       </div>
-    </section>
+      </section>
+    </SectionReveal>
   );
 };
 

@@ -38,9 +38,12 @@ export const ParticlesBG: React.FC = () => {
         this.vx = (Math.random() - 0.5) * 0.4;
         this.vy = (Math.random() - 0.5) * 0.4;
         this.size = Math.random() * 2 + 0.5;
-        this.color = Math.random() > 0.5 
-          ? 'rgba(0, 240, 255, 0.4)'  // Cyan
-          : 'rgba(189, 0, 255, 0.35)'; // Purple
+        const roll = Math.random();
+        this.color = roll > 0.66
+          ? 'rgba(0, 240, 255, 0.35)'
+          : roll > 0.33
+            ? 'rgba(189, 0, 255, 0.3)'
+            : 'rgba(255, 0, 127, 0.22)';
       }
 
       update() {
@@ -133,8 +136,10 @@ export const ParticlesBG: React.FC = () => {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDist) {
-            const alpha = (1 - dist / connectionDist) * 0.12;
-            ctx.strokeStyle = `rgba(0, 240, 255, ${alpha})`;
+            const alpha = (1 - dist / connectionDist) * 0.1;
+            ctx.strokeStyle = i % 3 === 0
+              ? `rgba(189, 0, 255, ${alpha})`
+              : `rgba(0, 240, 255, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);

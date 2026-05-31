@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Send, Mail, Cpu } from 'lucide-react';
+import { Send, Mail, Cpu, Phone } from 'lucide-react';
+import { config } from '../config/env';
+import { SectionHeader } from '../components/SectionHeader';
+import { SectionReveal } from '../components/SectionReveal';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -64,16 +67,9 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
-      
-      {/* Section Title */}
-      <div className="mb-16 text-center">
-        <span className="font-mono text-xs text-cyan-400 tracking-widest uppercase block mb-2">// INTEL EXCHANGE</span>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-100 tracking-wider">
-          SECURE TRANSCEIVER UPLINK
-        </h2>
-        <div className="w-24 h-[2px] bg-gradient-to-r from-cyan-400 to-transparent mt-3 mx-auto"></div>
-      </div>
+    <SectionReveal>
+      <section id="contact" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+        <SectionHeader tag="Contact" title="SECURE TRANSCEIVER UPLINK" accent="cyan" subtitle="Reach out for collaborations, hiring, or project inquiries." />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
@@ -84,7 +80,7 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
               <Cpu className="w-4.5 h-4.5 animate-pulse" /> TARGET DIRECTIVES
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed mb-6">
-              Recruiters, engineering managers, or fellow tech developers: utilize this direct transceiver link to log an inquiry. Chandan Kumar will respond to verified systems immediately.
+              Recruiters, engineering managers, or fellow tech developers: utilize this direct transceiver link to log an inquiry. {config.ownerName} will respond to verified systems immediately.
             </p>
 
             <div className="space-y-4 font-mono text-xs text-slate-300">
@@ -94,20 +90,20 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-500 block">SECURE DIRECT EMAIL</span>
-                  <a href="mailto:chandan99file@gmail.com" className="hover:text-cyan-400 transition-colors clickable cursor-pointer">
-                    chandan99file@gmail.com
+                  <a href={`mailto:${config.ownerEmail}`} className="hover:text-cyan-400 transition-colors clickable cursor-pointer">
+                    {config.ownerEmail}
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-3 border-t border-cyan-950/20 pt-3">
                 <div className="w-8 h-8 rounded border border-slate-700/50 flex items-center justify-center bg-cyber-dark text-cyan-400">
-                  <span className="text-xs">📞</span>
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div>
                   <span className="text-[10px] text-slate-500 block">DIRECT COMM UPLINK</span>
-                  <a href="tel:+917488406481" className="hover:text-purple-400 transition-colors clickable cursor-pointer">
-                    +91-7488406481
+                  <a href={`tel:${config.ownerPhone.replace(/\s/g, '')}`} className="hover:text-purple-400 transition-colors clickable cursor-pointer">
+                    {config.ownerPhone}
                   </a>
                 </div>
               </div>
@@ -120,18 +116,18 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
               EXTERNAL COGNITIVE PORTS
             </h3>
             <div className="grid grid-cols-2 gap-4">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
+              <a
+                href={config.githubUrl}
+                target="_blank"
                 rel="noreferrer"
                 className="p-3 border border-slate-700/50 rounded bg-[#040612] hover:border-cyan-400/40 hover:shadow-cyan-glow flex items-center gap-2 text-xs font-mono text-slate-300 transition-all duration-300 clickable cursor-pointer"
               >
                 <GithubIcon className="w-4 h-4 text-cyan-400" />
                 <span>GITHUB_PORT</span>
               </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
+              <a
+                href={config.linkedinUrl}
+                target="_blank"
                 rel="noreferrer"
                 className="p-3 border border-slate-700/50 rounded bg-[#040612] hover:border-purple-400/40 hover:shadow-purple-glow flex items-center gap-2 text-xs font-mono text-slate-300 transition-all duration-300 clickable cursor-pointer"
               >
@@ -228,7 +224,8 @@ export const Contact: React.FC<ContactProps> = ({ onSubmitContact }) => {
         </div>
       </div>
 
-    </section>
+      </section>
+    </SectionReveal>
   );
 };
 export default Contact;

@@ -9,6 +9,10 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-orbitron tracking-wide;
   }
+  ::selection {
+    background: rgba(0, 240, 255, 0.25);
+    color: #e2f8ff;
+  }
 }
 
 @layer utilities {
@@ -23,15 +27,18 @@
 
   /* Glassmorphism Panel */
   .glass-panel {
-    background: rgba(8, 9, 21, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 240, 255, 0.08);
+    background: rgba(8, 9, 21, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    box-shadow: inset 0 0 18px rgba(0, 240, 255, 0.03);
   }
 
   .glass-panel:hover {
-    border-color: rgba(0, 240, 255, 0.25);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+    border-color: rgba(0, 240, 255, 0.22);
+    box-shadow:
+      inset 0 0 22px rgba(0, 240, 255, 0.05),
+      0 0 18px rgba(0, 240, 255, 0.06);
   }
 
   /* Neon Glowing Borders */
@@ -73,6 +80,85 @@
     100% { transform: translateY(200%); }
   }
 
+  /* Pendulum swing — pivots from top of rope, natural easing */
+  @keyframes pendulumBoy {
+    0%   { transform: rotate(-7deg); }
+    50%  { transform: rotate(7deg); }
+    100% { transform: rotate(-7deg); }
+  }
+  @keyframes pendulumGirl {
+    0%   { transform: rotate(7deg); }
+    50%  { transform: rotate(-7deg); }
+    100% { transform: rotate(7deg); }
+  }
+
+  /* Animated neon lighting: rope, clothes, slide glow pulses */
+  @keyframes neonPulseBoy {
+    0%, 100% {
+      filter:
+        drop-shadow(0 0 18px rgba(0, 240, 255, 0.55))
+        drop-shadow(0 0 6px rgba(0, 240, 255, 0.3))
+        drop-shadow(0 0 40px rgba(0, 200, 255, 0.15))
+        drop-shadow(0 6px 20px rgba(0,0,0,0.6));
+    }
+    30% {
+      filter:
+        drop-shadow(0 0 32px rgba(0, 240, 255, 0.95))
+        drop-shadow(0 0 16px rgba(0, 220, 255, 0.7))
+        drop-shadow(0 0 60px rgba(0, 240, 255, 0.3))
+        drop-shadow(0 6px 24px rgba(0,0,0,0.5));
+    }
+    65% {
+      filter:
+        drop-shadow(0 0 22px rgba(0, 240, 255, 0.65))
+        drop-shadow(0 0 9px rgba(0, 240, 255, 0.4))
+        drop-shadow(0 0 50px rgba(0, 200, 255, 0.2))
+        drop-shadow(0 6px 20px rgba(0,0,0,0.55));
+    }
+  }
+
+  @keyframes neonPulseGirl {
+    0%, 100% {
+      filter:
+        drop-shadow(0 0 18px rgba(189, 0, 255, 0.55))
+        drop-shadow(0 0 6px rgba(189, 0, 255, 0.3))
+        drop-shadow(0 0 40px rgba(189, 0, 255, 0.15))
+        drop-shadow(0 6px 20px rgba(0,0,0,0.6));
+    }
+    35% {
+      filter:
+        drop-shadow(0 0 34px rgba(210, 0, 255, 0.95))
+        drop-shadow(0 0 18px rgba(200, 0, 255, 0.7))
+        drop-shadow(0 0 65px rgba(189, 0, 255, 0.3))
+        drop-shadow(0 6px 24px rgba(0,0,0,0.5));
+    }
+    70% {
+      filter:
+        drop-shadow(0 0 24px rgba(189, 0, 255, 0.65))
+        drop-shadow(0 0 10px rgba(189, 0, 255, 0.4))
+        drop-shadow(0 0 50px rgba(189, 0, 255, 0.2))
+        drop-shadow(0 6px 20px rgba(0,0,0,0.55));
+    }
+  }
+
+  .char-boy {
+    display: block;
+    transform-origin: top center;
+    animation:
+      pendulumBoy 3.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite,
+      neonPulseBoy 2.6s ease-in-out infinite;
+    mix-blend-mode: screen;
+  }
+
+  .char-girl {
+    display: block;
+    transform-origin: top center;
+    animation:
+      pendulumGirl 4.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite,
+      neonPulseGirl 3.1s ease-in-out infinite;
+    mix-blend-mode: screen;
+  }
+
   /* Glow Text */
   .text-glow-cyan {
     text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
@@ -87,6 +173,28 @@
     animation: matrixFloat 6s ease-in-out infinite;
   }
 
+  /* Section divider glow line */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.2), rgba(189, 0, 255, 0.15), transparent);
+  }
+
+  /* Enhanced card hover lift */
+  .card-lift {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Gradient mesh background overlay */
+  .mesh-gradient {
+    background:
+      radial-gradient(ellipse 70% 45% at 15% 35%, rgba(0, 240, 255, 0.045), transparent 55%),
+      radial-gradient(ellipse 55% 40% at 85% 55%, rgba(189, 0, 255, 0.04), transparent 55%),
+      radial-gradient(ellipse 40% 30% at 50% 90%, rgba(255, 0, 127, 0.025), transparent 50%);
+  }
+
   /* Reticle / Radar Scanning visual */
   .hud-scanner {
     border-radius: 50%;
@@ -99,7 +207,70 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     border-radius: 50%;
-    border: 2px dashed rgba(0, 240, 255, 0.3);
+    border: 2px dashed rgba(0, 240, 255, 0.2);
     animation: spin 30s linear infinite;
+  }
+
+  /* Globe — transparent container, globe only (no box / vignette / grid) */
+  .globe-canvas {
+    position: relative;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .globe-canvas > * {
+    height: 100%;
+  }
+
+  /* Production-grade panels */
+  .hud-panel {
+    background: rgba(8, 9, 21, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .hud-panel:hover {
+    border-color: rgba(0, 240, 255, 0.25);
+  }
+
+  .pro-stat {
+    @apply px-4 py-3 rounded-xl border border-cyan-500/10 bg-[#050614]/50 backdrop-blur-sm;
+  }
+
+  .pro-stat-value {
+    @apply font-orbitron font-bold text-sm text-cyan-300 tracking-wide;
+  }
+
+  .pro-stat-label {
+    @apply font-mono text-[9px] text-slate-500 uppercase tracking-widest;
+  }
+
+  .nav-link-active {
+    @apply relative text-cyan-400;
+  }
+  .nav-link-active::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-2 right-2 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent;
+  }
+
+  /* Primary CTA — matches neon cyan */
+  .btn-primary {
+    @apply px-8 py-3.5 rounded-lg font-orbitron font-semibold text-xs tracking-widest text-[#03030c] bg-cyan-400 transition-all duration-300 shadow-cyan-glow;
+  }
+  .btn-primary:hover {
+    @apply bg-cyan-300 shadow-cyan-glow-heavy -translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3.5 rounded-lg font-orbitron font-semibold text-xs tracking-widest text-purple-300 border border-purple-500/40 bg-purple-950/20 backdrop-blur-sm transition-all duration-300;
+  }
+  .btn-secondary:hover {
+    @apply border-purple-400 bg-purple-950/35 shadow-purple-glow -translate-y-0.5;
+  }
+
+  .pro-badge {
+    @apply inline-flex items-center gap-2 text-cyan-400 font-mono text-[11px] px-4 py-2 rounded-full border border-cyan-500/20 bg-cyan-950/10 backdrop-blur-sm;
   }
 }

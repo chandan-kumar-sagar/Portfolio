@@ -1,5 +1,7 @@
 import React from 'react';
 import { Database, ShieldCheck, Zap } from 'lucide-react';
+import { SectionHeader } from '../components/SectionHeader';
+import { SectionReveal } from '../components/SectionReveal';
 
 export const Highlights: React.FC = () => {
   const highlightCards = [
@@ -30,16 +32,9 @@ export const Highlights: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
-      
-      {/* Section Header */}
-      <div className="mb-16 text-center">
-        <span className="font-mono text-xs text-pink-400 tracking-widest uppercase block mb-2">// DIRECTIVE: CORE_BENCHMARKS</span>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-100 tracking-wider">
-          TECHNICAL BENCHMARKS
-        </h2>
-        <div className="w-24 h-[2px] bg-gradient-to-r from-pink-400 to-transparent mt-3 mx-auto"></div>
-      </div>
+    <SectionReveal>
+      <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+        <SectionHeader tag="Benchmarks" title="TECHNICAL BENCHMARKS" accent="pink" subtitle="Measurable outcomes from production engineering work." />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {highlightCards.map((card, idx) => {
@@ -86,7 +81,8 @@ export const Highlights: React.FC = () => {
         })}
       </div>
 
-    </section>
+      </section>
+    </SectionReveal>
   );
 };
 export default Highlights;

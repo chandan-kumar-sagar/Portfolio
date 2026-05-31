@@ -1,0 +1,275 @@
+/** Official tech logos via Simple Icons CDN — https://simpleicons.org */
+
+export interface TechSkill {
+  name: string;
+  slug: string;
+  color: string;
+  borderColor: string;
+  textColor: string;
+  shadow: string;
+  level: number;
+  desc: string;
+  category?: 'backend' | 'frontend' | 'database' | 'tools' | 'auth';
+}
+
+export const techLogoUrl = (slug: string, color?: string): string =>
+  color
+    ? `https://cdn.simpleicons.org/${slug}/${color.replace('#', '')}`
+    : `https://cdn.simpleicons.org/${slug}`;
+
+/** Core globe orbit — 10 technologies */
+export const GLOBE_SKILLS: TechSkill[] = [
+  {
+    name: 'Node.js',
+    slug: 'nodedotjs',
+    color: '#339933',
+    borderColor: 'border-green-500/50',
+    textColor: 'text-green-400',
+    shadow: 'shadow-[0_0_18px_rgba(34,197,94,0.5)]',
+    level: 92,
+    desc: 'Designing scalable backend architectures with event-driven runtime engines.',
+    category: 'backend',
+  },
+  {
+    name: 'Express.js',
+    slug: 'express',
+    color: '#FFFFFF',
+    borderColor: 'border-slate-400/50',
+    textColor: 'text-slate-300',
+    shadow: 'shadow-[0_0_18px_rgba(148,163,184,0.4)]',
+    level: 90,
+    desc: 'Routing HTTP endpoints and configuring pipeline middleware systems.',
+    category: 'backend',
+  },
+  {
+    name: 'TypeScript',
+    slug: 'typescript',
+    color: '#3178C6',
+    borderColor: 'border-blue-500/50',
+    textColor: 'text-blue-400',
+    shadow: 'shadow-[0_0_18px_rgba(59,130,246,0.5)]',
+    level: 88,
+    desc: 'Enforcing strict static type constraints, custom interfaces & schemas.',
+    category: 'backend',
+  },
+  {
+    name: 'MySQL',
+    slug: 'mysql',
+    color: '#4479A1',
+    borderColor: 'border-sky-500/50',
+    textColor: 'text-sky-400',
+    shadow: 'shadow-[0_0_18px_rgba(14,165,233,0.5)]',
+    level: 90,
+    desc: 'Structuring relational databases and tuning complex query indexes.',
+    category: 'database',
+  },
+  {
+    name: 'MongoDB',
+    slug: 'mongodb',
+    color: '#47A248',
+    borderColor: 'border-emerald-500/50',
+    textColor: 'text-emerald-400',
+    shadow: 'shadow-[0_0_18px_rgba(16,185,129,0.5)]',
+    level: 85,
+    desc: 'Constructing JSON document storage matrices and aggregations.',
+    category: 'database',
+  },
+  {
+    name: 'React.js',
+    slug: 'react',
+    color: '#61DAFB',
+    borderColor: 'border-cyan-500/50',
+    textColor: 'text-cyan-400',
+    shadow: 'shadow-[0_0_18px_rgba(6,182,212,0.5)]',
+    level: 82,
+    desc: 'Building modular interfaces with reactive virtual DOM lifecycles.',
+    category: 'frontend',
+  },
+  {
+    name: 'JWT Auth',
+    slug: 'jsonwebtokens',
+    color: '#000000',
+    borderColor: 'border-pink-500/50',
+    textColor: 'text-pink-400',
+    shadow: 'shadow-[0_0_18px_rgba(236,72,153,0.5)]',
+    level: 92,
+    desc: 'Implementing stateless session-free authorization and access scopes.',
+    category: 'auth',
+  },
+  {
+    name: 'Git',
+    slug: 'git',
+    color: '#F05032',
+    borderColor: 'border-orange-500/50',
+    textColor: 'text-orange-400',
+    shadow: 'shadow-[0_0_18px_rgba(249,115,22,0.5)]',
+    level: 88,
+    desc: 'Managing repository version control trees and merge branches.',
+    category: 'tools',
+  },
+  {
+    name: 'Postman',
+    slug: 'postman',
+    color: '#FF6C37',
+    borderColor: 'border-orange-500/50',
+    textColor: 'text-orange-300',
+    shadow: 'shadow-[0_0_18px_rgba(255,108,55,0.5)]',
+    level: 90,
+    desc: 'Automating API unit tests and compiling development environment scripts.',
+    category: 'tools',
+  },
+  {
+    name: 'JavaScript',
+    slug: 'javascript',
+    color: '#F7DF1E',
+    borderColor: 'border-yellow-500/50',
+    textColor: 'text-yellow-400',
+    shadow: 'shadow-[0_0_18px_rgba(234,179,8,0.5)]',
+    level: 88,
+    desc: 'Working with asynchronous event loops, promises, and functional patterns.',
+    category: 'frontend',
+  },
+];
+
+/** Extended skills for TechStack section matrix */
+export const MATRIX_SKILLS: (TechSkill & { category: TechSkill['category'] })[] = [
+  ...GLOBE_SKILLS.filter((s) => s.category).map((s) => ({ ...s, category: s.category! })),
+  {
+    name: 'RESTful APIs',
+    slug: 'openapiinitiative',
+    color: '#6BA539',
+    borderColor: 'border-lime-500/50',
+    textColor: 'text-lime-400',
+    shadow: 'shadow-[0_0_18px_rgba(132,204,22,0.4)]',
+    level: 95,
+    desc: 'Designing RESTful endpoints with clean routing and validation.',
+    category: 'backend',
+  },
+  {
+    name: 'HTML5 & CSS3',
+    slug: 'html5',
+    color: '#E34F26',
+    borderColor: 'border-orange-500/50',
+    textColor: 'text-orange-400',
+    shadow: 'shadow-[0_0_18px_rgba(249,115,22,0.4)]',
+    level: 90,
+    desc: 'Semantic markup and responsive styling foundations.',
+    category: 'frontend',
+  },
+  {
+    name: 'Tailwind CSS',
+    slug: 'tailwindcss',
+    color: '#06B6D4',
+    borderColor: 'border-cyan-500/50',
+    textColor: 'text-cyan-400',
+    shadow: 'shadow-[0_0_18px_rgba(6,182,212,0.4)]',
+    level: 80,
+    desc: 'Utility-first CSS for rapid UI development.',
+    category: 'frontend',
+  },
+  {
+    name: 'SQL Query Optimization',
+    slug: 'postgresql',
+    color: '#4169E1',
+    borderColor: 'border-indigo-500/50',
+    textColor: 'text-indigo-400',
+    shadow: 'shadow-[0_0_18px_rgba(99,102,241,0.4)]',
+    level: 90,
+    desc: 'Index tuning and query plan optimization.',
+    category: 'database',
+  },
+  {
+    name: 'Database Schemas',
+    slug: 'prisma',
+    color: '#2D3748',
+    borderColor: 'border-slate-500/50',
+    textColor: 'text-slate-300',
+    shadow: 'shadow-[0_0_18px_rgba(148,163,184,0.4)]',
+    level: 92,
+    desc: 'Relational schema design and normalization.',
+    category: 'database',
+  },
+  {
+    name: 'Git & GitHub',
+    slug: 'github',
+    color: '#FFFFFF',
+    borderColor: 'border-slate-400/50',
+    textColor: 'text-slate-300',
+    shadow: 'shadow-[0_0_18px_rgba(148,163,184,0.4)]',
+    level: 85,
+    desc: 'Version control workflows and collaborative development.',
+    category: 'tools',
+  },
+  {
+    name: 'VS Code',
+    slug: 'visualstudiocode',
+    color: '#007ACC',
+    borderColor: 'border-blue-500/50',
+    textColor: 'text-blue-400',
+    shadow: 'shadow-[0_0_18px_rgba(59,130,246,0.4)]',
+    level: 92,
+    desc: 'Primary IDE for full-stack development.',
+    category: 'tools',
+  },
+  {
+    name: 'Nodemon & ts-node',
+    slug: 'nodedotjs',
+    color: '#339933',
+    borderColor: 'border-green-500/50',
+    textColor: 'text-green-400',
+    shadow: 'shadow-[0_0_18px_rgba(34,197,94,0.4)]',
+    level: 90,
+    desc: 'Hot-reload dev tooling for Node.js backends.',
+    category: 'tools',
+  },
+  {
+    name: 'JSON Web Tokens (JWT)',
+    slug: 'jsonwebtokens',
+    color: '#000000',
+    borderColor: 'border-pink-500/50',
+    textColor: 'text-pink-400',
+    shadow: 'shadow-[0_0_18px_rgba(236,72,153,0.4)]',
+    level: 92,
+    desc: 'Stateless authentication token implementation.',
+    category: 'auth',
+  },
+  {
+    name: 'OAuth 2.0 Integration',
+    slug: 'oauth',
+    color: '#4285F4',
+    borderColor: 'border-blue-500/50',
+    textColor: 'text-blue-400',
+    shadow: 'shadow-[0_0_18px_rgba(59,130,246,0.4)]',
+    level: 80,
+    desc: 'Third-party authorization flows and token exchange.',
+    category: 'auth',
+  },
+  {
+    name: 'RBAC (Role Based Access)',
+    slug: 'auth0',
+    color: '#EB5424',
+    borderColor: 'border-red-500/50',
+    textColor: 'text-red-400',
+    shadow: 'shadow-[0_0_18px_rgba(239,68,68,0.4)]',
+    level: 88,
+    desc: 'Granular permission matrices and role hierarchies.',
+    category: 'auth',
+  },
+  {
+    name: 'Rate Limiting Shields',
+    slug: 'nginx',
+    color: '#009639',
+    borderColor: 'border-green-500/50',
+    textColor: 'text-green-400',
+    shadow: 'shadow-[0_0_18px_rgba(34,197,94,0.4)]',
+    level: 85,
+    desc: 'API throttling and DDoS protection layers.',
+    category: 'auth',
+  },
+];
+
+/** Lookup logo by technology name */
+export const getTechByName = (name: string): TechSkill | undefined =>
+  [...GLOBE_SKILLS, ...MATRIX_SKILLS].find(
+    (s) => s.name.toLowerCase() === name.toLowerCase() || s.name.includes(name)
+  );

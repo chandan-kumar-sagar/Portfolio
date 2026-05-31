@@ -1,5 +1,7 @@
 import React from 'react';
 import { Calendar, Building2, CheckCircle, Database } from 'lucide-react';
+import { SectionHeader } from '../components/SectionHeader';
+import { SectionReveal } from '../components/SectionReveal';
 
 export const Experience: React.FC = () => {
   const experiences = [
@@ -36,19 +38,12 @@ export const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 md:px-8 max-w-5xl mx-auto w-full select-none">
-      
-      {/* Section Title */}
-      <div className="mb-16 text-center">
-        <span className="font-mono text-xs text-cyan-400 tracking-widest uppercase block mb-2">// DIRECTIVE: CHRONOLOGICAL_MATRIX</span>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-100 tracking-wider">
-          PROFESSIONAL JOURNEY
-        </h2>
-        <div className="w-24 h-[2px] bg-gradient-to-r from-cyan-400 to-transparent mt-3 mx-auto"></div>
-      </div>
+    <SectionReveal delay={0.05}>
+      <section id="experience" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full select-none">
+        <SectionHeader tag="Experience" title="PROFESSIONAL JOURNEY" accent="cyan" subtitle="1.7+ years building production backend systems and optimized data layers." />
 
       {/* Timeline core data track */}
-      <div className="relative border-l border-cyan-500/10 pl-6 md:pl-10 space-y-12 ml-4">
+      <div className="relative border-l border-cyan-500/10 pl-8 md:pl-12 space-y-12 max-w-4xl mx-auto">
         
         {/* Optical glowing timeline path */}
         <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-cyan-400 via-purple-500 to-transparent shadow-cyan-glow"></div>
@@ -58,7 +53,7 @@ export const Experience: React.FC = () => {
             <div key={idx} className="relative group select-text">
               
               {/* Pulsing circular neon node */}
-              <span className={`absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full border border-slate-900 bg-cyber-bg flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-125
+              <span className={`absolute -left-[40px] md:-left-[56px] top-1.5 w-4 h-4 rounded-full border border-slate-900 bg-cyber-bg flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-125
                 ${idx === 0 ? 'text-cyan-400 border-cyan-400 shadow-cyan-glow' : 'text-purple-400 border-purple-400 shadow-purple-glow'}`}
               >
                 <div className={`w-1.5 h-1.5 rounded-full animate-pulse ${idx === 0 ? 'bg-cyan-400' : 'bg-purple-400'}`}></div>
@@ -115,7 +110,8 @@ export const Experience: React.FC = () => {
           );
         })}
       </div>
-    </section>
+      </section>
+    </SectionReveal>
   );
 };
 export default Experience;
