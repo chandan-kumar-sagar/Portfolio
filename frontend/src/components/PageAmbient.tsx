@@ -2,7 +2,7 @@ import React from 'react';
 
 /** Fixed ambient gradients — same tones as globe & particles */
 export const PageAmbient: React.FC = () => (
-  <div className="fixed inset-0 pointer-events-none -z-[5] overflow-hidden" aria-hidden>
+  <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden>
     <div className="absolute inset-0 bg-[#03030c]" />
     <div
       className="absolute top-0 left-1/2 -translate-x-1/2 w-[min(100%,900px)] h-[70vh] opacity-100"

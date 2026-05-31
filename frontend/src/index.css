@@ -4,10 +4,15 @@
 
 @layer base {
   body {
-    @apply font-inter antialiased overflow-x-hidden bg-[#03030c] text-slate-100;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-color: #03030c;
+    color: rgb(241 245 249);
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-orbitron tracking-wide;
+    font-family: Orbitron, sans-serif;
+    letter-spacing: 0.025em;
   }
   ::selection {
     background: rgba(0, 240, 255, 0.25);
@@ -235,45 +240,6 @@
     border-color: rgba(0, 240, 255, 0.25);
   }
 
-  .pro-stat {
-    @apply px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-cyan-500/10 bg-[#050614]/50 backdrop-blur-sm;
-  }
-
-  .pro-stat-value {
-    @apply font-orbitron font-bold text-sm text-cyan-300 tracking-wide;
-  }
-
-  .pro-stat-label {
-    @apply font-mono text-[9px] text-slate-500 uppercase tracking-widest;
-  }
-
-  .nav-link-active {
-    @apply relative text-cyan-400;
-  }
-  .nav-link-active::after {
-    content: '';
-    @apply absolute -bottom-0.5 left-2 right-2 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent;
-  }
-
-  /* Primary CTA — matches neon cyan */
-  .btn-primary {
-    @apply px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-orbitron font-semibold text-[10px] sm:text-xs tracking-widest text-[#03030c] bg-cyan-400 transition-all duration-300 shadow-cyan-glow;
-  }
-  .btn-primary:hover {
-    @apply bg-cyan-300 shadow-cyan-glow-heavy -translate-y-0.5;
-  }
-
-  .btn-secondary {
-    @apply px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-orbitron font-semibold text-[10px] sm:text-xs tracking-widest text-purple-300 border border-purple-500/40 bg-purple-950/20 backdrop-blur-sm transition-all duration-300;
-  }
-  .btn-secondary:hover {
-    @apply border-purple-400 bg-purple-950/35 shadow-purple-glow -translate-y-0.5;
-  }
-
-  .pro-badge {
-    @apply inline-flex items-center gap-1.5 sm:gap-2 text-cyan-400 font-mono text-[10px] sm:text-[11px] px-3 sm:px-4 py-2 rounded-full border border-cyan-500/20 bg-cyan-950/10 backdrop-blur-sm max-w-full overflow-hidden;
-  }
-
   /* Scrollbar hide/thin utilities */
   .scrollbar-thin {
     scrollbar-width: thin;
@@ -295,5 +261,290 @@
   .overflow-x-scrollable {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer components {
+  .pro-stat {
+    padding: 0.625rem 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(6, 182, 212, 0.1);
+    background: rgba(5, 6, 20, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  @media (min-width: 640px) {
+    .pro-stat {
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  .pro-stat-value {
+    font-family: Orbitron, sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(103 232 249);
+    letter-spacing: 0.025em;
+  }
+
+  .pro-stat-label {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 9px;
+    color: rgb(100 116 139);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-link-active {
+    position: relative;
+    color: rgb(34 211 238);
+  }
+  .nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.125rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgb(34 211 238), transparent);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Orbitron, sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #03030c;
+    background-color: rgb(34 211 238);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.35);
+  }
+  @media (min-width: 640px) {
+    .btn-primary {
+      font-size: 12px;
+      padding: 0.875rem 2rem;
+    }
+  }
+  .btn-primary:hover {
+    background-color: rgb(103 232 249);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.65);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Orbitron, sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgb(216 180 254);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    background: rgba(59, 7, 100, 0.2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  @media (min-width: 640px) {
+    .btn-secondary {
+      font-size: 12px;
+      padding: 0.875rem 2rem;
+    }
+  }
+  .btn-secondary:hover {
+    border-color: rgb(192 132 252);
+    background: rgba(59, 7, 100, 0.35);
+    box-shadow: 0 0 15px rgba(189, 0, 255, 0.35);
+    transform: translateY(-2px);
+  }
+
+  .pro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    max-width: 100%;
+    overflow: hidden;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 10px;
+    color: rgb(34 211 238);
+    padding: 0.5rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    background: rgba(8, 51, 68, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  @media (min-width: 640px) {
+    .pro-badge {
+      gap: 0.5rem;
+      font-size: 11px;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .hire-me-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 240, 255, 0.35);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 240, 255, 0.08) 0%,
+      rgba(189, 0, 255, 0.06) 50%,
+      rgba(0, 240, 255, 0.08) 100%
+    );
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: hire-me-glow 2.8s ease-in-out infinite;
+  }
+
+  .hire-me-badge::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 240, 255, 0.6),
+      rgba(189, 0, 255, 0.7),
+      rgba(57, 255, 20, 0.5),
+      rgba(0, 240, 255, 0.6)
+    );
+    background-size: 300% 100%;
+    animation: hire-me-border-flow 4s linear infinite;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  .hire-me-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+    animation: hire-me-sheen 3.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .hire-me-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 24px rgba(0, 240, 255, 0.45), 0 0 40px rgba(189, 0, 255, 0.2);
+  }
+
+  .hire-me-dot {
+    position: relative;
+    z-index: 1;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00f0ff;
+    box-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.5);
+    animation: hire-me-offer-blink 1.15s step-end infinite;
+  }
+
+  .hire-me-text {
+    position: relative;
+    z-index: 1;
+    font-family: Orbitron, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: #00f0ff;
+    text-shadow:
+      0 0 6px rgba(0, 240, 255, 0.95),
+      0 0 14px rgba(0, 240, 255, 0.55),
+      0 0 22px rgba(189, 0, 255, 0.35);
+    animation: hire-me-offer-blink 1.15s step-end infinite;
+  }
+}
+
+@keyframes hire-me-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 12px rgba(0, 240, 255, 0.04);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(189, 0, 255, 0.35), inset 0 0 16px rgba(189, 0, 255, 0.06);
+  }
+}
+
+@keyframes hire-me-border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+@keyframes hire-me-sheen {
+  0%,
+  100% {
+    left: -100%;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    left: 140%;
+    opacity: 0;
+  }
+}
+
+/* Offer / sale-sign style: quick double-blink, short pause, repeat */
+@keyframes hire-me-offer-blink {
+  0%,
+  36%,
+  72%,
+  100% {
+    opacity: 1;
+  }
+  6%,
+  12%,
+  42%,
+  48%,
+  78% {
+    opacity: 0.06;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hire-me-badge,
+  .hire-me-badge::before,
+  .hire-me-badge::after,
+  .hire-me-dot,
+  .hire-me-text {
+    animation: none;
+  }
+  .hire-me-badge:hover {
+    transform: none;
   }
 }

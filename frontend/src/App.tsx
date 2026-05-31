@@ -190,10 +190,15 @@ export const App: React.FC = () => {
                 <span>UPLINK: SECURE</span>
                 <span>VIEWS: {pageViews || '1250'}</span>
               </div>
-              <div className="px-2.5 sm:px-3 py-1 rounded-full border border-cyan-400/20 bg-cyan-950/15 flex items-center gap-1.5 shadow-hud-glow">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-                <span className="font-orbitron text-[9px] tracking-widest text-cyan-400 font-bold hidden sm:block">JARVIS ACTIVE</span>
-              </div>
+              <button
+                type="button"
+                onClick={() => handleNavClick('contact')}
+                className="hire-me-badge clickable"
+                aria-label="Hire me — go to contact"
+              >
+                <span className="hire-me-dot" aria-hidden />
+                <span className="hire-me-text">HIRE ME</span>
+              </button>
               <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-1.5 sm:p-2 rounded border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/10 transition-colors">
                 {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
               </button>
@@ -220,7 +225,7 @@ export const App: React.FC = () => {
             )}
           </AnimatePresence>
 
-          <main className="relative z-10 pt-[56px] sm:pt-[60px] mesh-gradient">
+          <main className="relative z-[1] pt-[56px] sm:pt-[60px] mesh-gradient">
 
             {/* ═══ HERO SECTION ═══ */}
             <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-14 sm:py-16 overflow-hidden">
@@ -252,8 +257,8 @@ export const App: React.FC = () => {
                 </div>
 
                 <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-3 sm:mb-4 font-orbitron relative text-center lg:text-left w-full">
-                  <span className="absolute inset-0 blur-2xl opacity-30 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-purple-400 select-none" aria-hidden="true">{config.ownerName}</span>
-                  <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-slate-100 to-purple-300">{config.ownerName}</span>
+                  <span className="absolute inset-0 blur-xl opacity-25 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-purple-400 select-none pointer-events-none" aria-hidden="true">{config.ownerName}</span>
+                  <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-slate-100 to-purple-300 drop-shadow-[0_0_24px_rgba(0,240,255,0.15)]">{config.ownerName}</span>
                 </h1>
 
                 <Hero onNavClick={handleNavClick} pageViews={pageViews} activeSection={activeSection} />

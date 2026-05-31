@@ -28,9 +28,10 @@ export default {
         }
       },
       fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
         orbitron: ['Orbitron', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
-        mono: ['Fira Code', 'Courier New', 'monospace']
+        inter: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['Fira Code', 'Courier New', 'monospace'],
       },
       boxShadow: {
         'cyan-glow': '0 0 15px rgba(0, 240, 255, 0.35)',

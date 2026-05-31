@@ -305,7 +305,7 @@ const TechBadge: React.FC<{
     const distance = worldPos.distanceTo(state.camera.position);
     const clampedT = Math.max(0, Math.min(1, 1 - (distance - minDistance) / (maxDistance - minDistance)));
 
-    setDepthOpacity(THREE.MathUtils.lerp(0.15, 1.0, clampedT));
+    setDepthOpacity(THREE.MathUtils.lerp(0.42, 1.0, clampedT));
     setDepthScale(THREE.MathUtils.lerp(0.65, 1.2, clampedT));
     setDepthZIndex(Math.round(clampedT * 100));
 

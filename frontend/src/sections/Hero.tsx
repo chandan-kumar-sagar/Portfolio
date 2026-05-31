@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Download } from 'lucide-react';
 import { config } from '../config/env';
 
+const ROLES = [
+  'Backend Developer',
+  'MERN Stack Developer',
+  'Node.js Engineer',
+  'API Architect',
+];
+
 interface HeroProps {
   onNavClick: (sectionId: string) => void;
   pageViews: number;
@@ -9,48 +16,36 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, activeSection: _activeSection }) => {
-  const roles = ['Backend Developer', 'MERN Stack Developer', 'Node.js Engineer', 'API Architect'];
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(100);
 
   useEffect(() => {
-    let timer: number;
-    const currentFullText = roles[roleIndex];
+    let timer: ReturnType<typeof setTimeout>;
+    const current = ROLES[roleIndex];
 
-    const handleType = () => {
-      if (!isDeleting) {
-        setDisplayText(currentFullText.substring(0, displayText.length + 1));
-        if (displayText === currentFullText) {
-          timer = setTimeout(() => setIsDeleting(true), 2200);
-          return;
-        }
-      } else {
-        setDisplayText(currentFullText.substring(0, displayText.length - 1));
-        if (displayText === '') {
-          setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % roles.length);
-        }
-      }
-      setTypingSpeed(isDeleting ? 40 : 100);
-      timer = setTimeout(handleType, typingSpeed);
-    };
+    if (!isDeleting && displayText.length < current.length) {
+      timer = setTimeout(() => setDisplayText(current.slice(0, displayText.length + 1)), 75);
+    } else if (!isDeleting && displayText.length === current.length) {
+      timer = setTimeout(() => setIsDeleting(true), 2200);
+    } else if (isDeleting && displayText.length > 0) {
+      timer = setTimeout(() => setDisplayText(current.slice(0, displayText.length - 1)), 40);
+    } else if (isDeleting && displayText.length === 0) {
+      setIsDeleting(false);
+      setRoleIndex((i) => (i + 1) % ROLES.length);
+    }
 
-    timer = setTimeout(handleType, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex, typingSpeed]);
+  }, [displayText, isDeleting, roleIndex]);
 
   return (
     <div className="flex flex-col items-center lg:items-start text-center lg:text-left select-text w-full">
 
-      {/* Animated Role Typewriter */}
       <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold font-orbitron tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 min-h-[36px] sm:min-h-[40px] mb-4 sm:mb-5">
         {displayText}
-        <span className="border-r-2 border-cyan-400 animate-typing-blink ml-1"></span>
+        <span className="border-r-2 border-cyan-400 animate-typing-blink ml-1" aria-hidden />
       </h2>
 
-      {/* Description */}
       <p className="text-sm sm:text-base text-slate-400 font-inter leading-relaxed max-w-[95%] sm:max-w-2xl mb-6 sm:mb-8">
         Leveraging <span className="text-cyan-400 font-bold">1.7+ years</span> of core backend systems experience.
         Specializing in high-performance <span className="text-purple-400 font-semibold">Node.js/Express.js</span> REST APIs,
@@ -58,15 +53,16 @@ export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, a
         secure JWT authentication layers, and production-level system deployments.
       </p>
 
-      {/* CTA Buttons */}
       <div className="flex flex-col xs:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 w-full">
         <button
+          type="button"
           onClick={() => onNavClick('projects')}
           className="btn-primary flex items-center gap-2 cursor-pointer clickable w-full xs:w-auto"
         >
           EXPLORE PROJECTS <ArrowRight className="w-4 h-4" />
         </button>
         <button
+          type="button"
           onClick={() => onNavClick('contact')}
           className="btn-secondary flex items-center gap-2 cursor-pointer clickable w-full xs:w-auto"
         >
@@ -81,7 +77,6 @@ export const Hero: React.FC<HeroProps> = ({ onNavClick, pageViews: _pageViews, a
         </a>
       </div>
 
-      {/* Quick metrics — production stat cards */}
       <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-6 sm:pt-8 w-full max-w-2xl select-none lg:mx-0">
         <div className="pro-stat text-center lg:text-left">
           <span className="pro-stat-label">DB Optimization</span>
